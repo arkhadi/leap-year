@@ -25,4 +25,9 @@ public class YearTest {
     void shouldBeLeapYearIfItIsDivisibleBy400(int input) {
         assertThat(Year.isLeapYear(input)).isTrue();
     }
+
+    @Test
+    void shouldNotBeALeapYearIfIsDivisibleBy100ButNotBy400() {
+        assertThat(Year.isLeapYear(1300)).isFalse();
+    }
 }
