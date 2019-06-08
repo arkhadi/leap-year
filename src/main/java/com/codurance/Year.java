@@ -3,13 +3,10 @@ package com.codurance;
 public class Year {
 
     static boolean isLeapYear(int year){
-        if (year % 100 == 0 && year % 400 != 0) {
-            return false;
-        }
+        return isDivisibleBy(year, 100) ? isDivisibleBy(year, 400) : isDivisibleBy(year, 4);
+    }
 
-        if(year % 400 == 0) {
-            return year % 400 == 0;
-        }
-        return year % 4 == 0;
+    private static boolean isDivisibleBy(int year, int value) {
+        return  year % value == 0;
     }
 }

@@ -1,6 +1,5 @@
 package com.codurance;
 
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -26,8 +25,9 @@ public class YearTest {
         assertThat(Year.isLeapYear(input)).isTrue();
     }
 
-    @Test
-    void shouldNotBeALeapYearIfIsDivisibleBy100ButNotBy400() {
-        assertThat(Year.isLeapYear(1300)).isFalse();
+    @ParameterizedTest
+    @ValueSource(ints = {1300, 1500, 2200})
+    void shouldNotBeALeapYearIfIsDivisibleBy100ButNotBy400(int input) {
+        assertThat(Year.isLeapYear(input)).isFalse();
     }
 }
